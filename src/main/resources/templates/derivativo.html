@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="@{~/base/layout}">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="description" content="Blog www.ciceroednilson.com.br"/>
+    <meta name="author" content="Cícero Ednilson"/>
+
+    <title>Consultar Registros</title>
+</head>
+<body>
+
+<section layout:fragment="content">
+
+    <!-- MONTANDO O GRID PARA POSICIONAR O FORMULÁRIO NO CENTRO -->
+    <div class="mdl-grid">
+
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <!-- CABEÇALHO DA TABELA -->
+            <thead>
+            <tr >
+
+                <th class="mdl-data-table__cell--non-numeric">Buy </td>
+                <th class="mdl-data-table__cell--non-numeric">Sell </td>
+
+                <th class="mdl-data-table__cell--non-numeric">asset </td>
+                <th class="mdl-data-table__cell--non-numeric">data</th>
+                <th class="mdl-data-table__cell--non-numeric">hora</th>
+                <th class="mdl-data-table__cell--non-numeric">ultimo</th>
+                <th class="mdl-data-table__cell--non-numeric">abertura</th>
+                <th class="mdl-data-table__cell--non-numeric">maximo</th>
+                <th class="mdl-data-table__cell--non-numeric">minimo</th>
+                <th class="mdl-data-table__cell--non-numeric">fechamentoAnterior</th>
+                <th class="mdl-data-table__cell--non-numeric">strike</th>
+                <th class="mdl-data-table__cell--non-numeric">media</th>
+                <th class="mdl-data-table__cell--non-numeric">negocios</th>
+                <th class="mdl-data-table__cell--non-numeric">quantidade</th>
+                <th class="mdl-data-table__cell--non-numeric">ofCompra</th>
+                <th class="mdl-data-table__cell--non-numeric">ofVenda</th>
+                <th class="mdl-data-table__cell--non-numeric">vOC</th>
+                <th class="mdl-data-table__cell--non-numeric">vOV</th>
+                <th class="mdl-data-table__cell--non-numeric">ajuste</th>
+                <th class="mdl-data-table__cell--non-numeric">ajAnterior</th>
+                <th class="mdl-data-table__cell--non-numeric">precoTeorico</th>
+                <th class="mdl-data-table__cell--non-numeric">vencimento</th>
+                <th class="mdl-data-table__cell--non-numeric">voltImplicita</th>
+                <th class="mdl-data-table__cell--non-numeric">delta</th>
+                <th class="mdl-data-table__cell--non-numeric">gama</th>
+                <th class="mdl-data-table__cell--non-numeric">theta</th>
+                <th class="mdl-data-table__cell--non-numeric">rho</th>
+                <th class="mdl-data-table__cell--non-numeric">valorIntrinseco</th>
+                <th class="mdl-data-table__cell--non-numeric">valorExtrinseco</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- PREENCHENDO A TABELA COM OS USUÁRIOS CADASTRADOS-->
+            <th:block th:each="derivativoModel : ${derivativoModel}">
+                <tr>
+                    <td>
+
+                        <button type="submit" value="submit" class="btn btn-success">Buy</button>
+                    </td>
+                    <td>
+
+                        <button type="submit" value="submit" class="btn btn-success">Sell</button>
+                    </td>
+                    <td th:text="${derivativoModel.asset}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.data}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.hora}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.ultimo}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.abertura}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.maximo}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.minimo}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.fechamentoAnterior}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.strike}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.media}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.negocios}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.quantidade}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.ofCompra}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.ofVenda}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.vOC}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.vOV}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.ajuste}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.ajAnterior}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.precoTeorico}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.vencimento}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.voltImplicita}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.delta}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.gama}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.theta}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.rho}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.valorIntrinseco}" class="mdl-data-table__cell--non-numeric"></td>
+                    <td th:text="${derivativoModel.valorExtrinseco}" class="mdl-data-table__cell--non-numeric"></td>
+
+
+                    <td>
+                        <!-- REALIZANDO A REQUEST PARA EDITAR UM CADASTRO -->
+                        <!--<form action="#" th:action="@{../usuario/editarCadastro}" method="get">-->
+                        <!--  <input type="hidden" name="codigoUsuario" th:value="${derivativoModel.asset}" />-->
+                        <!--  <button type="submit"  class="mdl-chip__action"><i class="material-icons">create</i></button>-->
+                        <!--  </form>-->
+                    </td>
+                    <td>
+                        <!-- EXCLUINDO UM REGISTRO CADASTRADO -->
+                        <!-- <form action="#" th:action="@{../usuario/excluir}" method="post">-->
+                        <!--    <input type="hidden" name="codigoUsuario" th:value="${usuarioModel.codigo}" />-->
+                        <!--    <button type="submit"  class="mdl-chip__action" onclick="return confirm('Deseja realmente excluir esse registro?');"><i class="material-icons">delete</i></button>-->
+                        <!-- </form>-->
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</section>
+<div class="mdl-layout-spacer"></div>
+</div>
+
+</section>
+
+</body>
+</html>

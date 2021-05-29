@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+
+</head>
+<body>
+<section layout:fragment="content">
+
+
+
+<body>
+ <div id="wrapper">
+  <h1>Sortable Table of Search Queries</h1>
+  
+
+
+   <form action="#" th:action="listaDerivativos" th:object="${clientList}" method="GET">
+
+     <table class="table table-bordered table-hover table-striped">
+       <thead>
+       <tr>
+         <th>Select</th>
+         <th>Asset</th>
+         <th>DATA</th>
+         <th>Asset</th>
+       </tr>
+       </thead>
+       <tbody>
+       <tr th:each="currentClient, stat : ${clientList}">
+         <td><input type="checkbox" th:checked="false" /></td>
+         <td th:text="${currentClient.getAsset()}" ></td>
+         <td th:text="${currentClient.getData()}"></td>
+         <td th:text="${currentClient.getAsset()}" ></td>
+       </tr>
+       </tbody>
+     </table>
+     <button type="submit" value="submit" class="btn btn-success">Submit</button>
+   </form>
+
+
+</section>
+
+</body>
+</html>

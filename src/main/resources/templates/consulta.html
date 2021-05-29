@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+
+</head>
+<body>
+
+
+<section layout:fragment="content">
+
+
+    <!-- MONTANDO O GRID PARA POSICIONAR O FORMULÁRIO NO CENTRO -->
+    <div class="mdl-grid">
+        <div class="mdl-layout-spacer"></div>
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--4dp mdl-color--white">
+            <div id="wrapper">
+                <h1>Dados Importados das Planilhas</h1>
+
+                        <table class="table table-bordered table-hover table-striped" action="@{/rendaFixa/listaDerivativos}" id="frmlistaDerivativos" th:object="${clientList}" method="GET">
+                            <thead>
+                                <tr>
+                                    <th>Select</th>
+                                    <th>Asset</th>
+                                    <th>DATA</th>
+                                    <th>Asset</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each= "currentClient  : ${clientList}">
+                                    <td><input type="checkbox" th:checked="false" /></td>
+                                    <td th:text="${currentClient.getAsset()}" ></td>
+                                    <td th:text="${currentClient.getData()}"></td>
+                                    <td th:text="${currentClient.getAsset()}" ></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                         <button type="submit" value="submit" class="btn btn-success">Submit</button>
+
+
+                <a  th:href="@{#{/rendaFixa/listaDerivativos}}">Derivativos</a>
+
+
+
+
+
+            </div>
+        </section>
+        <div class="mdl-layout-spacer"></div>
+    </div>
+
+</section>
+
+</body>
+</html>

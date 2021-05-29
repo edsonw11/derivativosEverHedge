@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+    <head>
+
+        <title>Tela do ever</title>
+
+        <link  rel="stylesheet" th:href="@{/css/material.min.css}"/>
+        <link  rel="stylesheet" th:href="@{/css/sistema.css}"/>
+        <link  rel="stylesheet" th:href="@{/css/style.css}"/>
+        <link  rel="stylesheet" th:href="@{/css/jquery.dataTables.css}">
+        <link  rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+
+
+        <script type="text/javascript" th:src="@{/js/jquery-3.1.1.min.js}"></script>
+
+
+        <script type="text/javascript" th:src="@{/js/material.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/jquery.dataTables.js}"></script>
+    </head>
+
+    <body>
+
+        <!-- FORM QUE VAI SER USADO PARA REALIZAR O LOGOUT -->
+        <form th:action="@{/logout}" id="form_logou"	th:method="post">
+            <input type="hidden"/>
+        </form>
+
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+            <!-- header->MONTA O MENU SUPERIOR -->
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+
+                    <a class="mdl-navigation__link" th:href="@{/home}">
+                        <span class="mdl-layout-title">Livro de ofertas</span>
+                    </a>
+
+                    <!--            <div class="mdl-layout-spacer"></div>-->
+                    <!--            <nav class="mdl-navigation mdl-layout&#45;&#45;large-screen-only">-->
+
+                    <!--                &lt;!&ndash; REDIRECIONA PARA A HOME PAGE &ndash;&gt;-->
+                    <!--                <a class="mdl-navigation__link" th:href="@{/home}">Home</a>-->
+
+                    <!--                &lt;!&ndash; REDIRECIONA PARA A PÁGINA DE CADASTRO &ndash;&gt;-->
+                    <!--                <a class="mdl-navigation__link" th:href="@{/dados/carga}">Carga de Dados</a>-->
+
+                    <!--                &lt;!&ndash; REDIRECIONA PARA A PÁGINA DE CONSULTA &ndash;&gt;-->
+                    <!--                <a class="mdl-navigation__link" th:href="@{/dados/consultar}">Consulta Dados</a>-->
+
+                    <!--                &lt;!&ndash; SAI DA APLICAÇÃO E VOLTA PARA A PÁGINA DE LOGIN &ndash;&gt;-->
+                    <!--                <a class="mdl-navigation__link" href="#" onclick="document.getElementById('form_logou').submit();">Logout</a>-->
+                    <!--            </nav>-->
+                    <!--        </div>-->
+                </div>
+            </header>
+
+            <!-- MONTA O MENU LATERAL -->
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">MENU</span>
+                <nav class="mdl-navigation">
+                    <!-- REDIRECIONA PARA A HOME PAGE -->
+                    <a class="mdl-navigation__link" th:href="@{/home}">Home</a>
+                    <!-- REDIRECIONA PARA A PÁGINA DE CADASTRO -->
+                    <a class="mdl-navigation__link" th:href="@{/dados/carga}">Carga de Dados</a>
+                    <!-- REDIRECIONA PARA A PÁGINA DE CONSULTA -->
+                    <a class="mdl-navigation__link" th:href="@{/dados/consultar}">Consulta</a>
+                    <!-- REDIRECIONA PARA A PÁGINA DE Derivativos -->
+                    <a class="mdl-navigation__link" th:href="@{/dados/consultarDerivativo}" th:action="@{/dados/consultarDerivativo}">Derivativos-Menu</a>
+                    <!-- SAI DA APLICAÇÃO E VOLTA PARA A PÁGINA DE LOGIN -->
+                    <a class="mdl-navigation__link" href="#" onclick="document.getElementById('form_logou').submit();">Logout</a>
+                </nav>
+            </div>
+
+            <!-- PARTE QUE VAI SER SUBSTITUÍDA PELO CONTEUDO DAS PÁGINAS -->
+            <main class="mdl-layout__content mdl-color--blue-grey-100">
+                <div class="page-content">
+
+                    <!-- CONTEUDO A SER SUBSTITUÍDO -->
+                    <div layout:fragment="content">Essa parte vai ser substituída </div>
+                </div>
+            </main>
+        </div>
+
+    </body>
+</html>

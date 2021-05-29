@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+
+</head>
+<body>
+<section layout:fragment="content">
+
+    <!-- MONTANDO O GRID PARA POSICIONAR O FORMULÁRIO NO CENTRO -->
+    <div class="mdl-grid">
+        <div class="mdl-layout-spacer"></div>
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--4dp mdl-color--white">
+            <body>
+
+            <div th:if="${message}">
+                <h2 th:text="${message}"/>
+            </div>
+
+            <div>
+                <form method="POST" enctype="multipart/form-data" action="/">
+                    <table>
+                        <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+                        <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+                    </table>
+                </form>
+            </div>
+
+            <div>
+                <ul>
+                    <li th:each="file : ${files}">
+                        <a th:href="${file}" th:text="${file}" />
+                    </li>
+                </ul>
+            </div>
+
+            </body>
+
+        </section>
+        <div class="mdl-layout-spacer"></div>
+    </div>
+
+</section>
+
+</body>
+</html>
